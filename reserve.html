@@ -66,11 +66,44 @@
 			</div>
 		</div>
 
-
 	    <footer class="footer">
 	      <div class="container">
 	        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
 	      </div>
 	    </footer>
+
+		<script type="text/javascript">
+			function runTableQuery(){
+
+			// Here we get the location of the root page.
+			// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+			var currentURL = window.location.origin;
+
+			// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+			$.ajax({url: currentURL + "/api/tables", method: "GET"})
+				.done(function(tableData) {
+					return tableData.length;
+				});
+			}
+		    // Question: What does this code do?
+		    $(".submit").on("click", function(event) {
+		      console.log("Here");
+		      event.preventDefault();
+		      var newReservation = {
+		        name: $("#reserve_name").val().trim(),
+		        phone: $("#reserve_phone").val().trim(),
+		        email: $("#reserve_email").val().trim(),
+		        uniqueID: $("#reserve_uniqueID").val().trim()
+		      };
+
+		      // Question: What does this code do??
+		      $.post("/api/new", newReservation)
+		      .done(function(data) {
+		        console.log(data);
+		        //console.log(runTableQuery());
+		        alert("Adding Reservation...");
+		      });
+		    });
+		</script>
 
 	</div>
