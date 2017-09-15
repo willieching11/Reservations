@@ -1,0 +1,24 @@
+{
+  "name": "reservations",
+  "version": "1.0.0",
+  "description": "In Class Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willieching11/Reservations.git"
+  },
+  "author": "Back Row Bandits",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willieching11/Reservations/issues"
+  },
+  "homepage": "https://github.com/willieching11/Reservations#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "path": "^0.12.7"
+  }
+}
